@@ -1,6 +1,6 @@
 package com.example.fotointent
 
-import android.content.Intent
+import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -27,15 +27,15 @@ class SecondActivity : AppCompatActivity() {
 
             val respuesta = Integer.parseInt(resp.text.toString())
 
-            // crear un intent para llamar a la second activity
-            val intent = Intent(this, MainActivity::class.java)
-
-            //añade el resultado de la suma al intent
+            // Introducimos los valores de la suma y la respuesta del usuario en el intent
             intent.putExtra("suma", suma)
             intent.putExtra("resp", respuesta)
 
-            // iniciamos la actividad
-            startActivity(intent)
+            // Seteamos el resultado de esta actividad y devolvemos los valores
+            setResult(Activity.RESULT_OK, intent)
+
+            // La terminamos
+            finish()
         }
     }
 }
